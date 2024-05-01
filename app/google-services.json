@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "403203569963",
+    "project_id": "word-wave-f3f4c",
+    "storage_bucket": "word-wave-f3f4c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:403203569963:android:7faff1f4bb3c5047a26d6e",
+        "android_client_info": {
+          "package_name": "com.example.wordwave"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "403203569963-dvc0sgn3vhou1chrb2ufi9rgcqf8efbd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.wordwave",
+            "certificate_hash": "30a0f9bcc2809421cf665c1da101a9acffe16e74"
+          }
+        },
+        {
+          "client_id": "403203569963-q2ejs6dt3r5379thv49l3046digtuqn4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbHTG4r7vpolqn2TXmzwu5Zeb8Vin--W4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "403203569963-q2ejs6dt3r5379thv49l3046digtuqn4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

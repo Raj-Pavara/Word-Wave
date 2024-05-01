@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Authentication">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="-30dp"
+        android:backgroundTint="@color/mainColor"
+        app:cardCornerRadius="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/authentication_tablayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="48dp"
+                android:layout_marginRight="48dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:tabTextAppearance="@style/MyTabLayoutTextAppearance"
+                app:tabBackground="@color/mainColor"
+                app:tabIndicatorColor="@color/white"
+                app:tabTextColor="@color/white"
+                >
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sign up" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sign in" />
+
+            </com.google.android.material.tabs.TabLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <!--    sign in-->
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/view_signin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="170dp"
+        android:layout_marginBottom="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/sign_in_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.08" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/sign_in_guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.92" />
+
+        <TextView
+            android:id="@+id/signin_welcome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="Welcome Back!"
+            android:textColor="@color/mainColor"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/sign_in_guideline2"
+            app:layout_constraintStart_toStartOf="@+id/sign_in_guideline"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/signin_cardview_email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/sign_in_guideline2"
+            app:layout_constraintStart_toStartOf="@+id/sign_in_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/signin_welcome">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/white"
+                android:drawableStart="@drawable/email_icon"
+                android:drawablePadding="20dp"
+                android:hint="Email"
+                android:inputType="textImeMultiLine"
+                android:padding="10dp"
+                android:paddingStart="20dp"
+                android:textSize="16sp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/signin_cardview_password"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/sign_in_guideline2"
+            app:layout_constraintStart_toStartOf="@+id/sign_in_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/signin_cardview_email">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/white"
+                android:drawableStart="@drawable/password_icon"
+                android:drawablePadding="20dp"
+                android:hint="Password"
+                android:inputType="textImeMultiLine|textPassword"
+                android:padding="10dp"
+                android:paddingStart="20dp"
+                android:textSize="16sp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/signin_forgetpassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Forget Password?"
+            android:textColor="@color/red"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toStartOf="@+id/sign_in_guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/signin_cardview_password" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/signin_signin_cardview"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="20dp"
+            app:cardCornerRadius="25dp"
+            app:cardElevation="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/sign_in_guideline2"
+            app:layout_constraintStart_toStartOf="@+id/sign_in_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/signin_forgetpassword">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/mainColor"
+                android:gravity="center"
+                android:text="Sign In"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+        </androidx.cardview.widget.CardView>
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="8dp"
+            android:background="#52000000"
+            app:layout_constraintEnd_toStartOf="@+id/signin_OR"
+            app:layout_constraintStart_toStartOf="@+id/sign_in_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/signin_signin_cardview" />
+
+        <TextView
+            android:id="@+id/signin_OR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="OR"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toStartOf="@+id/sign_in_guideline2"
+            app:layout_constraintStart_toStartOf="@+id/sign_in_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/signin_signin_cardview" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="32dp"
+            android:background="#52000000"
+            app:layout_constraintEnd_toStartOf="@+id/sign_in_guideline2"
+            app:layout_constraintStart_toEndOf="@+id/signin_OR"
+            app:layout_constraintTop_toBottomOf="@+id/signin_signin_cardview" />
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="25dp"
+            app:cardElevation="8dp"
+            app:layout_constraintStart_toStartOf="@+id/sign_in_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/signin_OR">
+
+            <TextView
+                android:id="@+id/signin_Google"
+                android:onClick="google_OnClick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/google_icon"
+                android:drawablePadding="10dp"
+                android:padding="10dp"
+                android:paddingEnd="20dp"
+                android:text="Google "
+                android:textSize="20sp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="25dp"
+            app:cardElevation="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/sign_in_guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/signin_OR">
+
+            <TextView
+                android:id="@+id/signin_phone"
+                android:onClick="phone_OnClick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/phone_icon"
+                android:drawablePadding="10dp"
+                android:padding="10dp"
+                android:paddingEnd="20dp"
+                android:text="Phone "
+                android:textSize="20sp"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <!--    sign up-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/view_signup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="170dp"
+        android:layout_marginBottom="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/sign_up_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.08" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/sign_up_guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.92" />
+
+        <TextView
+            android:id="@+id/signup_createAccount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="Create An Account"
+            android:textColor="@color/mainColor"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/sign_up_guideline2"
+            app:layout_constraintStart_toStartOf="@+id/sign_up_guideline"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/signup_cardview_username"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/sign_up_guideline2"
+            app:layout_constraintStart_toStartOf="@+id/sign_up_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/signup_createAccount">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/white"
+                android:drawableStart="@drawable/username_icon"
+                android:drawablePadding="20dp"
+                android:hint="Username"
+                android:inputType="textImeMultiLine"
+                android:padding="10dp"
+                android:paddingStart="20dp"
+                android:textSize="16sp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/signup_cardview_email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/sign_up_guideline2"
+            app:layout_constraintStart_toStartOf="@+id/sign_up_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/signup_cardview_username">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/white"
+                android:drawableStart="@drawable/email_icon"
+                android:drawablePadding="20dp"
+                android:hint="Email"
+                android:inputType="textImeMultiLine"
+                android:padding="10dp"
+                android:paddingStart="20dp"
+                android:textSize="16sp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/signup_cardview_password"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/sign_up_guideline2"
+            app:layout_constraintStart_toStartOf="@+id/sign_up_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/signup_cardview_email">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/white"
+                android:drawableStart="@drawable/password_icon"
+                android:drawablePadding="20dp"
+                android:hint="Password"
+                android:inputType="textImeMultiLine|textPassword"
+                android:padding="10dp"
+                android:paddingStart="20dp"
+                android:textSize="16sp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/signup_signup_cardview"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="20dp"
+            app:cardCornerRadius="25dp"
+            app:cardElevation="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/sign_up_guideline2"
+            app:layout_constraintStart_toStartOf="@+id/sign_up_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/signup_cardview_password">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/mainColor"
+                android:gravity="center"
+                android:text="Sign Up"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+        </androidx.cardview.widget.CardView>
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="8dp"
+            android:background="#52000000"
+            app:layout_constraintEnd_toStartOf="@+id/signup_OR"
+            app:layout_constraintStart_toStartOf="@+id/sign_up_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/signup_signup_cardview" />
+
+        <TextView
+            android:id="@+id/signup_OR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="OR"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toStartOf="@+id/sign_up_guideline2"
+            app:layout_constraintStart_toStartOf="@+id/sign_up_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/signup_signup_cardview" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="32dp"
+            android:background="#52000000"
+            app:layout_constraintEnd_toStartOf="@+id/sign_up_guideline2"
+            app:layout_constraintStart_toEndOf="@+id/signup_OR"
+            app:layout_constraintTop_toBottomOf="@+id/signup_signup_cardview" />
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="25dp"
+            app:cardElevation="8dp"
+            app:layout_constraintStart_toStartOf="@+id/sign_up_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/signup_OR">
+
+            <TextView
+                android:id="@+id/signup_Google"
+                android:onClick="google_OnClick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/google_icon"
+                android:drawablePadding="10dp"
+                android:padding="10dp"
+                android:paddingEnd="20dp"
+                android:text="Google "
+                android:textSize="20sp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="25dp"
+            app:cardElevation="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/sign_up_guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/signup_OR">
+
+            <TextView
+                android:id="@+id/signup_phone"
+                android:onClick="phone_OnClick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/phone_icon"
+                android:drawablePadding="10dp"
+                android:padding="10dp"
+                android:paddingEnd="20dp"
+                android:text="Phone "
+                android:textSize="20sp"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginBottom="-30dp"
+        android:backgroundTint="@color/mainColor"
+        app:cardCornerRadius="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
