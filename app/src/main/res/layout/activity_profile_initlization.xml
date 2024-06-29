@@ -5,18 +5,281 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/mainColor"
     tools:context=".Profile_Initlization">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="Buttonclicked"
-        android:text="Button"
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="-30dp"
+        app:cardCornerRadius="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="30dp">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/profilesetup_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.08" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/profilesetup_guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.92" />
+
+            <TextView
+                android:id="@+id/myprofile_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="My Profile"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/profilesetup_guideline"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/profileinitlization_dis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Please complete your profile"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@+id/profilesetup_guideline"
+                app:layout_constraintTop_toBottomOf="@id/myprofile_textview" />
+
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/setupprofile_profilepic"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="32dp"
+                android:scaleType="fitXY"
+                android:src="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/profilesetup_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/profileinitlization_dis"
+                app:shapeAppearance="@style/shapableImageViewStyle" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/profileinitlization_profilepicButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="80dp"
+                android:background="@color/mainColor"
+                android:src="@drawable/add_icon_profilepic"
+                app:layout_constraintStart_toStartOf="@+id/profilesetup_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/profileinitlization_dis"
+                app:shapeAppearance="@style/shapableImageViewStyleadd" />
+
+            <TextView
+                android:id="@+id/profileinitlizaion_fullname_dis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="Full Name"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@+id/profilesetup_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/setupprofile_profilepic" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/profileinitlization_fullname_cardview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="25dp"
+                app:cardElevation="4dp"
+                app:layout_constraintEnd_toStartOf="@+id/profilesetup_guideline2"
+                app:layout_constraintStart_toStartOf="@+id/profilesetup_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/profileinitlizaion_fullname_dis">
+
+                <EditText
+                    android:id="@+id/profileinitlization_fullname"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@color/white"
+                    android:inputType="textImeMultiLine"
+                    android:padding="10dp"
+                    android:paddingStart="20dp"
+                    android:textSize="16sp" />
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/profileinitlizaion_username_dis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="UserName"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@+id/profilesetup_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/profileinitlization_fullname_cardview" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/profileinitlization_username_cardview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="25dp"
+                app:cardElevation="4dp"
+                app:layout_constraintEnd_toStartOf="@+id/profilesetup_guideline2"
+                app:layout_constraintStart_toStartOf="@+id/profilesetup_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/profileinitlizaion_username_dis">
+
+                <EditText
+                    android:id="@+id/profileinitlization_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@color/white"
+                    android:inputType="textImeMultiLine"
+                    android:padding="10dp"
+                    android:paddingStart="20dp"
+                    android:textSize="16sp" />
+            </androidx.cardview.widget.CardView>
+
+
+            <LinearLayout
+                android:id="@+id/linearlayout_profileinitlization_dis"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="@+id/profilesetup_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/profileinitlization_username_cardview">
+
+                <TextView
+                    android:id="@+id/profileinitlization_usernametakenornot_dis"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                     />
+
+                <ImageView
+                    android:id="@+id/profileinitlization_smallicon"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="3dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/profileinitlizaion_email_dis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Email"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@+id/profilesetup_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/linearlayout_profileinitlization_dis" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/profileinitlization_email_cardview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="25dp"
+                app:cardElevation="4dp"
+                app:layout_constraintEnd_toStartOf="@+id/profilesetup_guideline2"
+                app:layout_constraintStart_toStartOf="@+id/profilesetup_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/profileinitlizaion_email_dis">
+
+                <EditText
+                    android:id="@+id/profileinitlization_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@color/white"
+                    android:inputType="textImeMultiLine"
+                    android:padding="10dp"
+                    android:paddingStart="20dp"
+                    android:textSize="16sp" />
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/profileinitlizaion_phone_dis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Phone Number"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@+id/profilesetup_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/profileinitlization_email_cardview" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/profileinitlization_phone_cardview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="25dp"
+                app:cardElevation="4dp"
+                app:layout_constraintEnd_toStartOf="@+id/profilesetup_guideline2"
+                app:layout_constraintStart_toStartOf="@+id/profilesetup_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/profileinitlizaion_phone_dis">
+
+                <EditText
+                    android:id="@+id/profileinitlization_phonenumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@color/white"
+                    android:inputType="textImeMultiLine|phone"
+                    android:maxLength="10"
+                    android:padding="10dp"
+                    android:paddingStart="20dp"
+                    android:textSize="16sp" />
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/profilesetup_guideline2"
+                app:layout_constraintTop_toBottomOf="@+id/profileinitlization_phone_cardview">
+
+                <Button
+                    android:id="@+id/profileinitlization_finish_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:backgroundTint="@color/mainColor"
+                    android:onClick="finishButtonclicked"
+                    android:text="Finish"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.5" />
+
+                <ProgressBar
+                    android:id="@+id/profileinitlization_progressbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.5" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

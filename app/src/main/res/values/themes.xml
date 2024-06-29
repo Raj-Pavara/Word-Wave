@@ -2,16 +2,51 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.WordWave" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+         <item name="colorPrimary">@color/mainColor</item>
+        <item name="colorPrimaryDark">@color/mainColor</item>
+
     </style>
 
     <style name="Theme.WordWave" parent="Base.Theme.WordWave" >
-        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowIsTranslucent">true</item>                         <!--for remove default splash screen.-->
     </style>
 
-    <style name="MyTabLayoutTextAppearance" parent="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">
+    <style name="MyTabLayoutTextAppearance" parent="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">     <!-- this style is for text of tablayout of authentication activity -->
         <item name="android:textSize">20sp</item>
     </style>
 
+    <style name="MyTabLayoutTextAppearanceMainActivity" parent="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">     <!-- this style is for text of tablayout of main activity -->
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="shapableImageViewStyle" parent="">          <!-- this style is for shapable image view for profile pic in activity_profile_initlization-->
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <style name="shapableImageViewStyleadd" parent="">     <!-- this style is for shapable image view foradd icon in profile pic in activity_profile_initlization-->
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>
+    </style>
+
+    <style name="shapableImageViewStyleprofilepic" parent="">      <!-- this style is for shapable image view for profile pic in mainactivity at profilefragment-->
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">77.5dp</item>
+    </style>
+
+    <style name="shapableImageViewStylesearchviewmainactivity" parent="">     <!-- this style is for shapable image view profile icon for searchviewlist in mainactivity-->
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">24dp</item>
+    </style>
+
+    <style name="shapableImageViewStyleindividualchatheading" parent="">     <!-- this style is for shapable image view profile icon for individualchat heading -->
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>
+    </style>
+
+    <style name="shapableImageViewStyleindividualchatsendbutton" parent="">     <!-- this style is for shapable image view profile icon for send button in individualchat-->
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>
+    </style>
 
 </resources>

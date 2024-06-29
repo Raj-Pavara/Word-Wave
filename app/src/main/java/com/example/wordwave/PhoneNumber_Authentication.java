@@ -29,7 +29,7 @@ public class PhoneNumber_Authentication extends AppCompatActivity {
     }
 
 
-    protected void initlization(){
+    protected void initlization() {
         androidx.appcompat.widget.Toolbar phonenumber_toolbar = findViewById(R.id.phonenumber_toolbar);
         setSupportActionBar(phonenumber_toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -41,21 +41,21 @@ public class PhoneNumber_Authentication extends AppCompatActivity {
     }
 
 
-    public void getOTP_OnClick(View view){
-        if(!countryCodePicker.isValidFullNumber()){                                      //return true if phone number is valid (10 digit and only numbers)
+    public void getOTP_OnClick(View view) {
+        if (!countryCodePicker.isValidFullNumber()) {                                      //return true if phone number is valid (10 digit and only numbers)
             phonenumber.setError("invalid phone number");
             return;
         }
 
         Intent intent = new Intent(PhoneNumber_Authentication.this, OTP_Verification.class);
-        intent.putExtra("phonenumber",countryCodePicker.getFullNumberWithPlus());               //return number with contry code +916352008602 like this.
-        intent.putExtra("sign",getIntent().getExtras().getString("sign"));           //send sign in / sing up
+        intent.putExtra("phonenumber", countryCodePicker.getFullNumberWithPlus());               //return number with contry code +916352008602 like this.
+        intent.putExtra("sign", getIntent().getExtras().getString("sign"));           //send sign in / sing up
         startActivity(intent);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == android.R.id.home){
+        if (item.getItemId() == android.R.id.home) {
             super.onBackPressed();
         }
         return super.onOptionsItemSelected(item);

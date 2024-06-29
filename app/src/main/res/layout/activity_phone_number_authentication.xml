@@ -39,8 +39,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/phonenumber_guideline"
@@ -92,19 +91,19 @@
             android:id="@+id/phonenumber_cardview_ccp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
             app:cardCornerRadius="15dp"
             app:cardElevation="8dp"
             app:layout_constraintEnd_toStartOf="@+id/phonenumber_guideline2"
             app:layout_constraintStart_toStartOf="@+id/phonenumber_guideline"
-            android:layout_marginTop="48dp"
             app:layout_constraintTop_toBottomOf="@+id/phonenumber_discription">
 
             <com.hbb20.CountryCodePicker
                 android:id="@+id/contryCodePicker"
-                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
+                android:gravity="center"
                 app:ccp_showFlag="true"
                 app:ccp_showNameCode="true"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -119,23 +118,23 @@
             android:id="@+id/phonenumber_cardview_phonenumber"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             app:cardCornerRadius="15dp"
             app:cardElevation="8dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/phonenumber_cardview_ccp"
             app:layout_constraintEnd_toStartOf="@+id/phonenumber_guideline2"
-            app:layout_constraintStart_toStartOf="@+id/phonenumber_guideline">
+            app:layout_constraintStart_toStartOf="@+id/phonenumber_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/phonenumber_cardview_ccp">
 
             <EditText
                 android:id="@+id/phonenumber"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@color/white"
-                android:maxLength="11"
                 android:drawableStart="@drawable/phone_icon"
                 android:drawablePadding="20dp"
                 android:hint="Phone Number"
                 android:inputType="phone"
+                android:maxLength="11"
                 android:padding="10dp"
                 android:paddingStart="20dp"
                 android:textSize="16sp" />
@@ -147,21 +146,21 @@
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="20dp"
             app:cardCornerRadius="25dp"
             app:cardElevation="8dp"
-            android:layout_marginTop="32dp"
             app:layout_constraintEnd_toStartOf="@+id/phonenumber_guideline2"
             app:layout_constraintStart_toStartOf="@+id/phonenumber_guideline"
             app:layout_constraintTop_toBottomOf="@+id/phonenumber_cardview_phonenumber">
 
             <TextView
-                android:onClick="getOTP_OnClick"
                 android:id="@+id/getOTP_TextView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/mainColor"
                 android:gravity="center"
+                android:onClick="getOTP_OnClick"
                 android:text="Get OTP"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
@@ -180,7 +179,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

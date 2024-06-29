@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?><!--this layout is layout for recyclerview of searchbar of mainactivity-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="72dp"
+    android:orientation="horizontal"
+    android:id="@+id/linearlayout_layout_photostatus">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/photostatus_statusfragment"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/default_profile_icon"
+        app:shapeAppearance="@style/shapableImageViewStylesearchviewmainactivity" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/username_photostatusstatusgragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="User Name"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/timestemp_photostatusstatusgragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="00:00 PM"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+
+</LinearLayout>

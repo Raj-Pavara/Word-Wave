@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/sender_message_background"
+        android:maxWidth="320dp"
+        android:minWidth="32dp"
+        android:minHeight="32dp"
+        android:paddingStart="8dp"
+        android:paddingBottom="2dp">
+
+        <TextView
+            android:id="@+id/senderMessageText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/sender_message_color"
+            android:maxWidth="230dp"
+            android:minWidth="50dp"
+            android:layout_marginStart="8dp"
+            android:text="Hello "
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/senderMessageTime"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/senderMessageTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/sender_message_color"
+            android:text="12:30 AM"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/senderMessageText"
+            app:layout_constraintEnd_toStartOf="@+id/senderlayout_guideline"
+            app:layout_constraintStart_toEndOf="@+id/senderMessageText"
+            app:layout_constraintTop_toBottomOf="@+id/senderMessageText"
+            app:layout_constraintVertical_bias="0.37" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/senderlayout_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="16dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

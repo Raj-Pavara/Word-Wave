@@ -106,6 +106,7 @@
             app:layout_constraintTop_toBottomOf="@+id/signin_welcome">
 
             <EditText
+                android:id="@+id/signin_email"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@color/white"
@@ -131,9 +132,11 @@
             app:layout_constraintTop_toBottomOf="@+id/signin_cardview_email">
 
             <EditText
+                android:id="@+id/signin_password"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@color/white"
+                android:maxLength="8"
                 android:drawableStart="@drawable/password_icon"
                 android:drawablePadding="20dp"
                 android:hint="Password"
@@ -169,7 +172,25 @@
             app:layout_constraintStart_toStartOf="@+id/sign_in_guideline"
             app:layout_constraintTop_toBottomOf="@+id/signin_forgetpassword">
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:background="@color/mainColor"
+                android:layout_height="match_parent">
+
+            <ProgressBar
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="3dp"
+                android:id="@+id/progressBar_signin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
             <TextView
+                android:id="@+id/signin_textview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/mainColor"
@@ -178,6 +199,7 @@
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
 
@@ -322,6 +344,7 @@
             app:layout_constraintTop_toBottomOf="@+id/signup_createAccount">
 
             <EditText
+                android:id="@+id/signup_username"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@color/white"
@@ -347,6 +370,7 @@
             app:layout_constraintTop_toBottomOf="@+id/signup_cardview_username">
 
             <EditText
+                android:id="@+id/signup_email"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@color/white"
@@ -372,6 +396,8 @@
             app:layout_constraintTop_toBottomOf="@+id/signup_cardview_email">
 
             <EditText
+                android:id="@+id/signup_password"
+                android:maxLength="8"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@color/white"
@@ -398,7 +424,25 @@
             app:layout_constraintStart_toStartOf="@+id/sign_up_guideline"
             app:layout_constraintTop_toBottomOf="@+id/signup_cardview_password">
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:background="@color/mainColor"
+                android:layout_height="match_parent">
+
+            <ProgressBar
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="3dp"
+                android:id="@+id/progressBar_signup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
             <TextView
+                android:id="@+id/signup_textview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/mainColor"
@@ -407,6 +451,7 @@
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
 

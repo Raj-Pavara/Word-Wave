@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".IndividualUserInfo">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_individualuserinfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/app_name"
+        app:titleTextColor="@color/white" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/profilepic_individualinfo"
+        android:layout_width="155dp"
+        android:layout_height="155dp"
+        android:layout_marginTop="24dp"
+        android:padding="5dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/default_profile_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_individualuserinfo"
+        app:shapeAppearance="@style/shapableImageViewStyleprofilepic" />
+
+    <TextView
+        android:id="@+id/username_individualinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UserName"
+        android:textColor="@color/black"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profilepic_individualinfo" />
+
+    <TextView
+        android:id="@+id/fullname_individualinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="~FullName"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/username_individualinfo" />
+
+    <LinearLayout
+        android:id="@+id/videocall_layout_individualinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/background_buttons_individualuserinfo"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fullname_individualinfo">
+
+        <ImageView
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:src="@drawable/video_call_icon_mainactivity_serchview" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Video"
+            android:textColor="@color/mainColor"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/audiocall_layout_individualinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/background_buttons_individualuserinfo"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/videocall_layout_individualinfo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fullname_individualinfo">
+
+        <ImageView
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:src="@drawable/phone_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone"
+            android:textColor="@color/mainColor"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/share_layout_individualinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/background_buttons_individualuserinfo"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/videocall_layout_individualinfo"
+        app:layout_constraintTop_toBottomOf="@+id/fullname_individualinfo">
+
+        <ImageView
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:src="@drawable/share_icon_individualuserinfo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Share"
+            android:textColor="@color/mainColor"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textview_individualinfo_contactinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Contact Info"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/videocall_layout_individualinfo" />
+
+    <TextView
+        android:id="@+id/email_individualinfo"
+        android:layout_marginTop="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="wordwavexyz@gmail.com"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_individualinfo_contactinfo" />
+
+    <TextView
+        android:id="@+id/phoneno_individualinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="+919999999999"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email_individualinfo" />
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/main_icon"
+        android:layout_marginBottom="18dp"
+        android:layout_marginEnd="18dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

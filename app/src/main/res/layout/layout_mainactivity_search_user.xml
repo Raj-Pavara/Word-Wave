@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--this layout is layout for recyclerview of searchbar of mainactivity-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="72dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/profileicon_searchlayout_mainactivity"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="12dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/default_profile_icon"
+        app:shapeAppearance="@style/shapableImageViewStylesearchviewmainactivity"
+     />
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:id="@+id/linearlayout_searchlayout_mainactivity"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:orientation="vertical"
+        android:layout_marginEnd="96dp">
+        <TextView
+            android:id="@+id/username_searchlayout_mainactivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="User Name"
+            android:textSize="18sp"/>
+        <TextView
+            android:id="@+id/fullname_searchlayout_mainactivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Full Name"
+            android:textSize="13sp"/>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_marginStart="-96dp"
+        android:id="@+id/callicon_searchlayout_mainactivity"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="23dp"
+        android:src="@drawable/phone_icon"
+        android:layout_marginEnd="16dp"
+        />
+
+    <ImageView
+        android:id="@+id/videocallicon_searchlayout_mainactivity"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="23dp"
+        android:src="@drawable/video_call_icon_mainactivity_serchview"
+        />
+</LinearLayout>

@@ -33,17 +33,15 @@ import java.util.concurrent.TimeUnit;
 
 public class OTP_Verification extends AppCompatActivity {
 
+
+    private EditText otpInput;
+    private TextView resendOtpTextView,otpverification_number,otpverification_TextView;   // this is verify otp button
+    private ProgressBar progressBar;
     private String phonenumber;
     private String verificatinoCode;  // this is otp
-
     private PhoneAuthProvider.ForceResendingToken resendingToken;
     private Long timeoutSeconds = 60L;                                   //60L denotes that value is in Long type like for float 60f , 60L means 60 second.
     private FirebaseAuth mAuth;
-    private TextView otpverification_number;
-    private EditText otpInput;
-    private TextView otpverification_TextView;   // this is verify otp button
-    private ProgressBar progressBar;
-    private TextView resendOtpTextView;
     private String sign;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +57,7 @@ public class OTP_Verification extends AppCompatActivity {
         setSupportActionBar(forgetpassword_toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        phonenumber = getIntent().getExtras().getString("phonenumber");
+        phonenumber = getIntent().getExtras().getString("phonenumber").trim();
         otpverification_number = findViewById(R.id.otpverification_number);
         otpverification_number.setText(phonenumber);
         otpInput = findViewById(R.id.otpverification_edittext);
@@ -115,7 +113,7 @@ public class OTP_Verification extends AppCompatActivity {
 
                     @Override
                     public void onVerificationFailed(@NonNull FirebaseException e) {
-                        Toast.makeText(OTP_Verification.this, "verfication failed" + e, Toast.LENGTH_SHORT).show();
+                        ToastMaker.show(OTP_Verification.this,"verification Failed "+e);
                         setInProgress(false);
                         finish();
                         //This method is called when the verification process encounters an error and fails. It provides details about the failure through the FirebaseException parameter. You can use this method to handle errors gracefully and inform the user about the failure. For instance, you might display a message like "Verification failed. Please try again" to the user
@@ -127,9 +125,8 @@ public class OTP_Verification extends AppCompatActivity {
                         //when otp is send succesfully then this method is called
                         verificatinoCode = s;                //otp that send via sms.
                         resendingToken = forceResendingToken;          //used for resend otp
-                        Toast.makeText(OTP_Verification.this, "otp send succesfully", Toast.LENGTH_SHORT).show();
+                        ToastMaker.show(OTP_Verification.this,"OTP send sucessfully");
                         setInProgress(false);
-
                         /*This method is called when the OTP code is successfully sent to the user's phone via SMS. It provides the verification ID (s) and a token (forceResendingToken) that can be used to resend the OTP if needed. You can use this method to inform the user that the OTP has been sent successfully and provide any necessary instructions. For example, you might display a message like "OTP sent successfully. Please check your messages" to the user.*/
                     }
                 });
@@ -173,7 +170,7 @@ public class OTP_Verification extends AppCompatActivity {
                             boolean isNewUser = task.getResult().getAdditionalUserInfo().isNewUser();
 
                             //here 4 case occuer
-                            //1.old user and click on sign in (go to main activity) finish privious all activity
+                            //1.old user and click on sign in (go to main activity) finish privious all activity)
                             //2.new user and click on sign in (go to profile initlization acitivty and then after setup profile goto main activity
                             //3.old user and click on sign up(go to profile initlization activity and then after update profile go back to authentication activity)
                             //4.new user and click on sing up (go to profile initlization activity and then after setup profile go back to authentication activity)
@@ -196,16 +193,15 @@ public class OTP_Verification extends AppCompatActivity {
                             }
                             else{
                                 intent.putExtra("sign","signUp");
-                                mAuth.signOut();
                             }
-
+                            intent.putExtra("comeFrom","Phone");
                             startActivity(intent);
                             finish();
 
                         }
                         else{
                             //call when incorrect otp entred
-                            Toast.makeText(OTP_Verification.this, "Incorrect OTP", Toast.LENGTH_SHORT).show();
+                            ToastMaker.show(OTP_Verification.this,"Incorrect OTP");
                         }
                     }
                 }
@@ -245,6 +241,7 @@ public class OTP_Verification extends AppCompatActivity {
                     }
                 },0,1000);
     }
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
