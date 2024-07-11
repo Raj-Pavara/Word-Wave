@@ -15,8 +15,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.auth.FirebaseAuth;
+import com.zegocloud.uikit.prebuilt.call.invite.widget.ZegoSendCallInvitationButton;
+import com.zegocloud.uikit.service.defines.ZegoUIKitUser;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class RecyclerAdapterSearchBar extends RecyclerView.Adapter<RecyclerAdapterSearchBar.ViewHolder> {
@@ -30,7 +34,8 @@ public class RecyclerAdapterSearchBar extends RecyclerView.Adapter<RecyclerAdapt
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView userName, fullName;
-        ImageView profileIcon, callIcon, videocallIcon;
+        ImageView profileIcon;
+        ZegoSendCallInvitationButton callIcon, videocallIcon;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -93,24 +98,20 @@ public class RecyclerAdapterSearchBar extends RecyclerView.Adapter<RecyclerAdapt
                 }
         );
 
-        holder.callIcon.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        // code for call
-                    }
-                }
-        );
+        String targetUID = row_searchbar.get(position).userId;
 
-        holder.videocallIcon.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        //code for video call
-                    }
-                }
-        );
+        holder.callIcon.setIsVideoCall(false);
+        holder.callIcon.setResourceID("zego_uikit_call"); // Please fill in the resource ID name that has been configured in the ZEGOCLOUD's console here.
+        holder.callIcon.setInvitees(Collections.singletonList(new ZegoUIKitUser(targetUID, row_searchbar.get(position).username)));
 
+        holder.videocallIcon.setIsVideoCall(true);
+        holder.videocallIcon.setResourceID("zego_uikit_call"); // Please fill in the resource ID name that has been configured in the ZEGOCLOUD's console here.
+        holder.videocallIcon.setInvitees(Collections.singletonList(new ZegoUIKitUser(targetUID, row_searchbar.get(position).username)));
+
+        if (targetUID.equals(FirebaseAuth.getInstance().getUid().toString())) {
+            holder.callIcon.setClickable(false);
+            holder.videocallIcon.setClickable(false);
+        }
     }
 
     @Override

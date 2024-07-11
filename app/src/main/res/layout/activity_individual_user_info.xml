@@ -70,10 +70,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fullname_individualinfo">
 
-        <ImageView
+        <com.zegocloud.uikit.prebuilt.call.invite.widget.ZegoSendCallInvitationButton
+            android:id="@+id/videocallicon_individual_userinfo"
             android:layout_width="26dp"
             android:layout_height="26dp"
-            android:src="@drawable/video_call_icon_mainactivity_serchview" />
+            android:drawableBottom="@drawable/video_call_icon_mainactivity_serchview" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -100,10 +101,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fullname_individualinfo">
 
-        <ImageView
+        <com.zegocloud.uikit.prebuilt.call.invite.widget.ZegoSendCallInvitationButton
+            android:id="@+id/callicon_individual_userinfo"
             android:layout_width="26dp"
             android:layout_height="26dp"
-            android:src="@drawable/phone_icon" />
+            android:drawableBottom="@drawable/phone_icon" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -151,17 +153,17 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:text="Contact Info"
-        android:textStyle="bold"
         android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/videocall_layout_individualinfo" />
 
     <TextView
         android:id="@+id/email_individualinfo"
-        android:layout_marginTop="4dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
+        android:layout_marginTop="4dp"
         android:text="wordwavexyz@gmail.com"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview_individualinfo_contactinfo" />
@@ -178,10 +180,10 @@
     <ImageView
         android:layout_width="60dp"
         android:layout_height="60dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/main_icon"
-        android:layout_marginBottom="18dp"
-        android:layout_marginEnd="18dp"/>
+        app:srcCompat="@drawable/main_icon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

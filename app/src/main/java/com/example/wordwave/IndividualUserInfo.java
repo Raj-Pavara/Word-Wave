@@ -21,14 +21,20 @@ import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.zegocloud.uikit.prebuilt.call.invite.widget.ZegoSendCallInvitationButton;
+import com.zegocloud.uikit.service.defines.ZegoUIKitUser;
 
 import java.text.SimpleDateFormat;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Locale;
 
@@ -67,44 +73,75 @@ public class IndividualUserInfo extends AppCompatActivity {
         sharelayout = findViewById(R.id.share_layout_individualinfo);
 
 
-        FirebaseFirestore
-                .getInstance()
-                .collection("users")
-                .document(targetUserId)
-                .addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
-                    @Override
-                    public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
+        FirebaseFirestore.getInstance().collection("users").document(targetUserId).addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
 
-                        if (documentSnapshot != null) {
+                if (documentSnapshot != null) {
 
-                            String fn = documentSnapshot.getString("fullName");
-                            String un = documentSnapshot.getString("userName");
-                            String e = documentSnapshot.getString("email");
-                            String p = documentSnapshot.getString("phone");
-                            String ppu = documentSnapshot.getString("profilePicUri");
-                            username.setText(un);
-                            fullname.setText("~" + fn);
-                            Glide.with(IndividualUserInfo.this).load(ppu).into(profilepic);
-                            email.setText(e);
-                            phoneno.setText("+91" + p);
-                            collecteddata = "WORD WAVE ACCOUNT INFO\n\n"+"USERNAME :- " + un + "\nFULLNAME :- " + fn + "\nEMAIL :- " + e + "\nPHONE NO :- " + p;
+                    String fn = documentSnapshot.getString("fullName");
+                    String un = documentSnapshot.getString("userName");
+                    String e = documentSnapshot.getString("email");
+                    String p = documentSnapshot.getString("phone");
+                    String ppu = documentSnapshot.getString("profilePicUri");
+                    username.setText(un);
+                    fullname.setText("~" + fn);
+                    Glide.with(IndividualUserInfo.this).load(ppu).into(profilepic);
+                    email.setText(e);
+                    phoneno.setText("+91" + p);
+                    collecteddata = "WORD WAVE ACCOUNT INFO\n\n" + "USERNAME :- " + un + "\nFULLNAME :- " + fn + "\nEMAIL :- " + e + "\nPHONE NO :- " + p;
 
-                            sharelayout.setOnClickListener(
-                                    new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            Intent intent = new Intent(Intent.ACTION_SEND);
-                                            intent.setType("text/plain");
-                                            intent.putExtra(Intent.EXTRA_SUBJECT,"word wave account info");
-                                            intent.putExtra(android.content.Intent.EXTRA_TEXT, collecteddata);
-                                            startActivity(Intent.createChooser(intent, "Share Via"));
-                                        }
-                                    }
-                            );
+                    sharelayout.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(Intent.ACTION_SEND);
+                            intent.setType("text/plain");
+                            intent.putExtra(Intent.EXTRA_SUBJECT, "word wave account info");
+                            intent.putExtra(android.content.Intent.EXTRA_TEXT, collecteddata);
+                            startActivity(Intent.createChooser(intent, "Share Via"));
                         }
+                    });
 
+
+                    ZegoSendCallInvitationButton callIcon = findViewById(R.id.callicon_individual_userinfo);
+                    ZegoSendCallInvitationButton videocallIcon = findViewById(R.id.videocallicon_individual_userinfo);
+
+                    videocallIcon.setIsVideoCall(true);
+                    videocallIcon.setResourceID("zego_uikit_call"); // Please fill in the resource ID name that has been configured in the ZEGOCLOUD's console here.
+                    videocallIcon.setInvitees(Collections.singletonList(new ZegoUIKitUser(targetUserId, un)));
+
+                    callIcon.setIsVideoCall(false);
+                    callIcon.setResourceID("zego_uikit_call"); // Please fill in the resource ID name that has been configured in the ZEGOCLOUD's console here.
+                    callIcon.setInvitees(Collections.singletonList(new ZegoUIKitUser(targetUserId, un)));
+
+                    callIcon.setClickable(false);
+                    videocallIcon.setClickable(false);
+                    videolayout.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            videocallIcon.callOnClick();
+                            videocallIcon.setClickable(false);
+                        }
+                    });
+
+                    audiolayout.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            callIcon.callOnClick();
+                            callIcon.setClickable(false);
+                        }
+                    });
+
+                    if (targetUserId.equals(FirebaseAuth.getInstance().getUid().toString())) {
+                        videolayout.setEnabled(false);
+                        audiolayout.setEnabled(false);
                     }
-                });
+
+                }
+
+            }
+        });
+
     }
 
     @Override
@@ -117,15 +154,12 @@ public class IndividualUserInfo extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        FirebaseDatabase.getInstance().getReference().child("userStatus").child(FirebaseAuth.getInstance().getUid().toString()).child("lastseen")
-                .setValue("Online").addOnCompleteListener(
-                        new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
+        FirebaseDatabase.getInstance().getReference().child("userStatus").child(FirebaseAuth.getInstance().getUid().toString()).child("lastseen").setValue("Online").addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
 
-                            }
-                        }
-                );
+            }
+        });
         super.onResume();
     }
 
@@ -150,15 +184,12 @@ public class IndividualUserInfo extends AppCompatActivity {
     protected void onPause() {
         long timestamp = System.currentTimeMillis();
         String lastSeen = formatTimestamp(timestamp);
-        FirebaseDatabase.getInstance().getReference().child("userStatus").child(FirebaseAuth.getInstance().getUid().toString()).child("lastseen")
-                .setValue(lastSeen).addOnCompleteListener(
-                        new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
+        FirebaseDatabase.getInstance().getReference().child("userStatus").child(FirebaseAuth.getInstance().getUid().toString()).child("lastseen").setValue(lastSeen).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
 
-                            }
-                        }
-                );
+            }
+        });
         super.onPause();
     }
 }

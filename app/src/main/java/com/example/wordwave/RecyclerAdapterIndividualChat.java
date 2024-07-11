@@ -56,24 +56,28 @@ public class RecyclerAdapterIndividualChat extends RecyclerView.Adapter<Recycler
         @Override
         public void onCreateContextMenu(android.view.ContextMenu menu, View v, android.view.ContextMenu.ContextMenuInfo menuInfo) {
             menuInflater.inflate(R.menu.contextmenurecyclerview, menu);
-            menu.findItem(R.id.cancel_menu_id).setOnMenuItemClickListener(onCancelMenu);
-            menu.findItem(R.id.deleteforeveryone_menu_id).setOnMenuItemClickListener(onDeleteForEveryOneMenu);
-            menu.findItem(R.id.deleteforme_menu_id).setOnMenuItemClickListener(onDeleteForMe);
+            menu.findItem(R.id.cancel_menu_id).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(@NonNull MenuItem item) {
+                    return false;
+                }
+            });
+            menu.findItem(R.id.deleteforeveryone_menu_id).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(@NonNull MenuItem item) {
+                    removeMessageByTimestamp(messageModels.get(getAdapterPosition()).timeStamp, true);
+                    return false;
+                }
+            });
+            menu.findItem(R.id.deleteforme_menu_id).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(@NonNull MenuItem item) {
+                    removeMessageByTimestamp(messageModels.get(getAdapterPosition()).timeStamp, false);
+                    return false;
+                }
+            });
 
         }
-
-        private final MenuItem.OnMenuItemClickListener onCancelMenu = menuItem -> {
-            return true;
-        };
-
-        private final MenuItem.OnMenuItemClickListener onDeleteForEveryOneMenu = menuItem -> {
-            removeMessageByTimestamp(messageModels.get(getAdapterPosition()).timeStamp, true);
-            return true;
-        };
-        private final MenuItem.OnMenuItemClickListener onDeleteForMe = menuItem -> {
-            removeMessageByTimestamp(messageModels.get(getAdapterPosition()).timeStamp, false);
-            return true;
-        };
     }
 
     public void removeMessageByTimestamp(long timestamp, boolean iseveryone) {

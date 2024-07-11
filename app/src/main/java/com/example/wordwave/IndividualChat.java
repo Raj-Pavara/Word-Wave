@@ -43,9 +43,12 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
+import com.zegocloud.uikit.prebuilt.call.invite.widget.ZegoSendCallInvitationButton;
+import com.zegocloud.uikit.service.defines.ZegoUIKitUser;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -57,7 +60,8 @@ import java.util.Objects;
 public class IndividualChat extends AppCompatActivity {
 
     private String targetUserId, targetUserName, targetUserEmail, targetUserPhoneNo, targetUserProfilePicUri, targetUserFullName;
-    private ImageView backButtonindividualchatHeading, profileicon_individualchat_heading, callicon_individualchat_heading, videocallicon_individualchat_heading;
+    private ImageView backButtonindividualchatHeading, profileicon_individualchat_heading;
+    ZegoSendCallInvitationButton callicon_individualchat_heading, videocallicon_individualchat_heading;
     private TextView username_individualchat_heading, status_individualchat_heading;
     private LinearLayout linearlayout_individualchat_heading;
     private String currentUserId;
@@ -124,6 +128,20 @@ public class IndividualChat extends AppCompatActivity {
                                 }
                             }
                     );
+
+
+                    videocallicon_individualchat_heading.setIsVideoCall(true);
+                    videocallicon_individualchat_heading.setResourceID("zego_uikit_call"); // Please fill in the resource ID name that has been configured in the ZEGOCLOUD's console here.
+                    videocallicon_individualchat_heading.setInvitees(Collections.singletonList(new ZegoUIKitUser(targetUserId, targetUserName)));
+
+                    callicon_individualchat_heading.setIsVideoCall(false);
+                    callicon_individualchat_heading.setResourceID("zego_uikit_call"); // Please fill in the resource ID name that has been configured in the ZEGOCLOUD's console here.
+                    callicon_individualchat_heading.setInvitees(Collections.singletonList(new ZegoUIKitUser(targetUserId, targetUserName)));
+
+                    if (targetUserId.equals(currentUserId)) {
+                        callicon_individualchat_heading.setClickable(false);
+                        videocallicon_individualchat_heading.setClickable(false);
+                    }
                 }
             }
         });
@@ -146,25 +164,6 @@ public class IndividualChat extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-        callicon_individualchat_heading.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                    }
-                }
-        );
-
-        videocallicon_individualchat_heading.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                    }
-                }
-        );
 
 
         setupChat();
@@ -218,8 +217,8 @@ public class IndividualChat extends AppCompatActivity {
                             Date date = new Date();
                             MessageModel messageModel = new MessageModel(message, currentUserId, date.getTime());
                             database = FirebaseDatabase.getInstance();
-                            Map<String , Object> map = new HashMap<>();
-                            map.put("key","value");
+                            Map<String, Object> map = new HashMap<>();
+                            map.put("key", "value");
                             FirebaseDatabase.getInstance().getReference().child("Connections/" + currentUserId + "/" + targetUserId).updateChildren(map);
                             database.getReference().child("chats").child(currentUserId + targetUserId).child("messages").push()
                                     .setValue(messageModel).addOnCompleteListener(

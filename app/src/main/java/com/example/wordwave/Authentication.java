@@ -33,7 +33,7 @@ public class Authentication extends AppCompatActivity {
     private androidx.constraintlayout.widget.ConstraintLayout view_signup, view_signin;
     private EditText signup_username, signup_password, signup_email, signin_email, signin_password;
     private TextView signin_textview, signup_textview;
-    private ProgressBar progressBar_signup,progressBar_signin;
+    private ProgressBar progressBar_signup, progressBar_signin;
     private TextView signin_forgetpassword;
     private FirebaseAuth mAuth;
     private static final String TAG = "GoogleActivity";
@@ -119,7 +119,7 @@ public class Authentication extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startActivity(new Intent(Authentication.this,ForgetPassword.class));
+                        startActivity(new Intent(Authentication.this, ForgetPassword.class));
                     }
                 }
         );
@@ -183,8 +183,7 @@ public class Authentication extends AppCompatActivity {
                 } else if (username.length() < 6) {
                     signup_username.setError("Invalid Username");
                     return;
-                }
-                else if (email.equals("")) {
+                } else if (email.equals("")) {
                     signup_email.setError("Enter Email");
                     return;
                 } else if ((!email.contains("@")) || (!email.contains("."))) {
@@ -267,7 +266,6 @@ public class Authentication extends AppCompatActivity {
             progressBar_signin.setVisibility(View.INVISIBLE);
         }
     }
-
 
 
     //call when sign in or sing up google textview is clicked.

@@ -1,6 +1,7 @@
 package com.example.wordwave;
 
 
+import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -28,6 +29,9 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.zegocloud.uikit.prebuilt.call.ZegoUIKitPrebuiltCallService;
+import com.zegocloud.uikit.prebuilt.call.invite.ZegoUIKitPrebuiltCallInvitationConfig;
+import com.zegocloud.uikit.prebuilt.call.invite.ZegoUIKitPrebuiltCallInvitationService;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -82,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
                     String e = documentSnapshot.getString("email");
                     String p = documentSnapshot.getString("phone");
                     String ppu = documentSnapshot.getString("profilePicUri");
+                    startServiceForZegoCloud(FirebaseAuth.getInstance().getUid(),un);
 
                     Custom_Viewpager_Adapter cva = new Custom_Viewpager_Adapter(getSupportFragmentManager(), getLifecycle(), fn, un, e, p, ppu);
                     viewPager_mainactivity.setAdapter(cva);
@@ -251,7 +256,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onPause() {
-        if (!issignout) {
+        if (!issignout) {                                          //here when we signout then onpause method called here we use current user's data so we couldn't use that data because we signed out.
             long timestamp = System.currentTimeMillis();
             String lastSeen = formatTimestamp(timestamp);
             FirebaseDatabase.getInstance().getReference().child("userStatus").child(FirebaseAuth.getInstance().getUid().toString()).child("lastseen")
@@ -265,5 +270,29 @@ public class MainActivity extends AppCompatActivity {
                     );
         }
         super.onPause();
+    }
+
+
+
+    void startServiceForZegoCloud(String UID,String un) {
+
+        //this method is set user name with one id and we can identify individual user with his userId.
+
+        Application application = getApplication(); // Android's application context
+        long appID = 937749117;   // yourAppID
+        String appSign = "3dc2f95ecd6b0e9f7993a122bd7349d9251bb5a087d1652ec21624d2abb197ca";  // yourAppSign
+        String userID = UID; // yourUserID, userID should only contain numbers, English characters, and '_'.
+        String userName = un;   // yourUserName
+
+        ZegoUIKitPrebuiltCallInvitationConfig callInvitationConfig = new ZegoUIKitPrebuiltCallInvitationConfig();
+
+        ZegoUIKitPrebuiltCallService.init(getApplication(), appID, appSign, userID, userName, callInvitationConfig);
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ZegoUIKitPrebuiltCallInvitationService.unInit();            // this method is performs cleanup operations specific to this zegocloud service .
     }
 }

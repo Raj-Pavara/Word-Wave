@@ -27,6 +27,7 @@ public class PhotoStatus extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_photo_status);
 
         ImageView iv = findViewById(R.id.imageView);

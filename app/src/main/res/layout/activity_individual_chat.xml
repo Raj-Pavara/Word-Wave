@@ -58,21 +58,21 @@
                 android:textSize="12sp" />
         </LinearLayout>
 
-        <ImageView
+        <com.zegocloud.uikit.prebuilt.call.invite.widget.ZegoSendCallInvitationButton
             android:id="@+id/callicon_individualchat_heading"
             android:layout_width="26dp"
             android:layout_height="26dp"
             android:layout_marginStart="-96dp"
             android:layout_marginTop="19dp"
             android:layout_marginEnd="16dp"
-            android:src="@drawable/call_icon_individualchat_heading" />
+            android:drawableBottom="@drawable/call_icon_individualchat_heading" />
 
-        <ImageView
+        <com.zegocloud.uikit.prebuilt.call.invite.widget.ZegoSendCallInvitationButton
             android:id="@+id/videocallicon_individualchat_heading"
             android:layout_width="26dp"
             android:layout_height="26dp"
             android:layout_marginTop="19dp"
-            android:src="@drawable/video_call_icon_individualchat_heading" />
+            android:drawableBottom="@drawable/video_call_icon_individualchat_heading" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

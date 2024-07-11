@@ -22,7 +22,7 @@
         android:background="@color/receiver_message_color"
         android:maxWidth="230dp"
         android:minWidth="50dp"
-        android:text="Hello Jayesh"
+        android:text="Hello World"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/recieverMessageTime"

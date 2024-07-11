@@ -85,11 +85,7 @@ public class ChatsFragment extends Fragment {
                                         ArrayList<Row_RecyclerView_SearchBar> temp = new ArrayList<>();
                                         for (int i = 0; i < al.size(); i++) {
                                             if (connections.contains(al.get(i).userId)) {
-
                                                 temp.add(al.get(i));
-                                                if (al.get(i).userId.equals(FirebaseAuth.getInstance().getUid())) {
-                                                    temp.get(temp.size() - 1).username = temp.get(temp.size() - 1).username;
-                                                }
                                             }
                                         }
                                         rac.fun(temp);

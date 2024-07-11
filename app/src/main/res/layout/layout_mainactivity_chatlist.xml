@@ -40,21 +40,21 @@
             android:textSize="13sp"/>
     </LinearLayout>
 
-    <ImageView
+    <com.zegocloud.uikit.prebuilt.call.invite.widget.ZegoSendCallInvitationButton
         android:layout_marginStart="-96dp"
         android:id="@+id/callicon_chatlist_mainactivity"
         android:layout_width="26dp"
         android:layout_height="26dp"
         android:layout_marginTop="23dp"
-        android:src="@drawable/phone_icon"
+        android:drawableBottom="@drawable/phone_icon"
         android:layout_marginEnd="16dp"
         />
 
-    <ImageView
+    <com.zegocloud.uikit.prebuilt.call.invite.widget.ZegoSendCallInvitationButton
         android:id="@+id/videocallicon_chatlist_mainactivity"
         android:layout_width="26dp"
         android:layout_height="26dp"
         android:layout_marginTop="23dp"
-        android:src="@drawable/video_call_icon_mainactivity_serchview"
+        android:drawableBottom="@drawable/video_call_icon_mainactivity_serchview"
         />
 </LinearLayout>
