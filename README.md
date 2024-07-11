@@ -113,7 +113,7 @@ In the Individual Chat section, you can chat with a particular user. This activi
 
 ## 📸 Screenshots
 
-You can see screenshots of this app in the [screenshots]([https://github.com/Raj-Pavara/WordWave/tree/main/screenshots](https://github.com/Raj-Pavara/Word-Wave/tree/main/Screenshot%20PDF)) folder.
+You can see screenshots of this app in the [Screenshot PDF](https://github.com/Raj-Pavara/Word-Wave/tree/main/Screenshot%20PDF) folder.
 
 ## 📦 APK File
 
