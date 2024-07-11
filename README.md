@@ -19,9 +19,9 @@ Word Wave is devided into 5 sections
 1. **🔒 Authentication**
 2. **🧑‍💼 Profile Edit and Initialization**
 3. **🏠 Main Activity**
-   - 👤 Profile Info
-   - 📸 Photo Status
    - 💬 Chat List
+   - 📸 Photo Status
+   - 👤 Profile Info
    - 🔍 Search User
 4. **🗨️ Individual Chat**
 5. **ℹ️ Individual User Info**
@@ -48,7 +48,7 @@ Word Wave is devided into 5 sections
 
    **Note:** 
      1. Firebase Storage is used for storing profile photos of users and Firebase Firestore is used for storing user's other information.
-     2. Usernames must be unique; you cannot set a username that is already taken by another user.
+     2. Usernames must be unique, you cannot set a username that is already taken by another user.
         
 ### 🏠 Main Activity
 
@@ -113,7 +113,11 @@ In the Individual Chat section, you can chat with a particular user. This activi
 
 ## 📸 Screenshots
 
-You can see screenshots of this app in the [screenshots](https://github.com/Raj-Pavara/WordWave/tree/main/screenshots) folder.
+You can see screenshots of this app in the [screenshots]([https://github.com/Raj-Pavara/WordWave/tree/main/screenshots](https://github.com/Raj-Pavara/Word-Wave/tree/main/Screenshot%20PDF)) folder.
+
+## 📦 APK File
+
+To generate an APK file of WordWave, clone the repository into Android Studio. Then, go to the Build option in the main menu and select Build APK.
 
 ## 💡 Feedback
 
@@ -121,7 +125,7 @@ We appreciate your feedback! If you have any suggestions or find any issues, ple
 
 ## 🔗 LinkedIn Profile
 
-You can watch a demo video of the Word Wave app on my LinkedIn profile: [My LinkedIn Profile](https://www.linkedin.com/in/raj-pavara-6b65262aa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)
+You can pdf of screenshots of the Word Wave app on my LinkedIn profile: [My LinkedIn Profile](https://www.linkedin.com/in/raj-pavara-6b65262aa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)
 
 Feel free to connect with me on LinkedIn for more updates and discussions!
 
